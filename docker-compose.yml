@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  mybinder-production:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mybinder-front
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    working_dir: /usr/src/mybinder
+    command: npm run build
+    environment:
+      NODE_ENV: production
+      VITE_API_URL: ${VITE_API_URL}
+      GENERATE_SOURCEMAP: 
+    volumes:
+      - /usr/src/mybinder/front-end:/usr/src/mybinder/build

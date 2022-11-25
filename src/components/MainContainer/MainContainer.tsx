@@ -7,16 +7,16 @@ import {
 } from './MainContainer.styles'
 
 export function MainContainer(props: { children: React.ReactNode }) {
-  const page = usePage()
+  const page = usePage();
 
   return (
     <Container noHeader={page === 'view'}>
       <PageContainer>
         {props.children}
-        <BottomText>
-          MyBinder - Rafael de Lima Bordoni, 2022
-        </BottomText>
       </PageContainer>
+      <BottomText>
+        MyBinder - Rafael de Lima Bordoni, 2022
+      </BottomText>
     </Container>
   );
 }

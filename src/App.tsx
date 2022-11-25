@@ -4,8 +4,8 @@ import {
   Alert,
   CoverSpinner,
   Header,
+  LoginGate,
   MainContainer,
-  ProtectedRoutes
 } from 'components';
 import {
   Landing
@@ -23,13 +23,11 @@ function App() {
           <Route path='/' element={<Landing />} />
           <Route path='/sign-up' element={<></>} />
           <Route path='/sign-in' element={<></>} />
-          <Route path='/view/:username/:pageUrl' element={<></>} />
+          <Route path='/view/:username/:pageUrl' element={<Landing />} />
+          <Route path='/settings' element={<LoginGate node={<></>} />} />
+          <Route path='/dashboard' element={<LoginGate node={<></>} />} />
+          <Route path='/edit/:pageUrl' element={<LoginGate node={<></>} />} />
         </Routes>
-        <ProtectedRoutes>
-          <Route path='/settings' element={<></>} />
-          <Route path='/dashboard' element={<></>} />
-          <Route path='/edit/:pageUrl' element={<></>} />
-        </ProtectedRoutes>
       </MainContainer>
       <Alert />
     </>

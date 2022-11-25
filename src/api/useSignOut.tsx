@@ -6,7 +6,9 @@ export function useSignOut() {
   const { removeToken } = useStorageToken();
   const setUser = useSetUser();
 
-  setUser(null);
-  removeToken();
-  navigate('/');
+  return () => {
+    setUser(null);
+    removeToken();
+    navigate('/');
+  };
 }

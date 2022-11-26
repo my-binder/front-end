@@ -14,17 +14,3 @@ export const LogoWrapper = styled.div`
     text-align: center;
   }
 `;
-
-export const LinkWrapper = styled.div`
-  margin-top: 44px;
-  a {
-    font-family: var(--scriptfont);
-    font-size: 28px;
-    color: var(--maincolor);
-    text-align: center;
-    transition: 0.2s;
-    :hover {
-      color: var(--contrastcolor2);
-    }
-  }
-`;

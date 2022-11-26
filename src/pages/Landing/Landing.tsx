@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MdAutoStories } from 'react-icons/md';
-import { Typography } from '@mui/material';
-import { LogoWrapper, LinkWrapper } from './Landing.styles';
+import { Typography, Button } from '@mui/material';
+import { LogoWrapper } from './Landing.styles';
 
 export function Landing() {
   return (
@@ -32,11 +32,16 @@ export function Landing() {
         To start using, just make an account. It's totally free and we
         don't collect any data from you.
       </Typography>
-      <LinkWrapper>
-        <Link to='/sign-up'>
-          Click here to start!
-        </Link>
-      </LinkWrapper>
+      <Button
+        variant='text'
+        color='primary'
+        size='large'
+        style={{ marginTop: '20px' }}
+        component={Link}
+        to='/sign-up'
+      >
+        Click here to start!
+      </Button>
     </>
   );
 }

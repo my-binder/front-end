@@ -42,9 +42,17 @@ const theme = createTheme({
           }
         },
         {
-          props: { variant: 'text' },
+          props: { variant: 'text', size: 'medium' },
           style: {
             fontFamily: 'Ubuntu',
+            textTransform: 'none'
+          }
+        },
+        {
+          props: { variant: 'text', size: 'large' },
+          style: {
+            fontFamily: 'Ubuntu',
+            fontSize: '28px',
             textTransform: 'none'
           }
         }

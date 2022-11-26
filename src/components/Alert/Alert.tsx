@@ -1,4 +1,5 @@
 import { useAlertData } from 'react-styled-alert';
+import { Button, Typography } from '@mui/material';
 import {
   Background,
   PopupContainer,
@@ -12,17 +13,27 @@ export function Alert() {
   return (
     <Background>
       <PopupContainer>
-        {data.content}
-      <ButtonContainer>
-        <button onClick={data.onOk}>
-          Ok
-        </button>
-        {data.onCancel ? (
-          <button onClick={data.onCancel}>
-            Cancel
-          </button>
-        ) : (<></>)}
-      </ButtonContainer>
+        <Typography variant='body1' color='text.primary'>
+          {data.content}
+        </Typography>
+        <ButtonContainer>
+          <Button
+            onClick={data.onOk}
+            color='primary'
+            variant='contained'
+          >
+            Ok
+          </Button>
+          {data.onCancel ? (
+            <Button
+              onClick={data.onCancel}
+              color='primary'
+              variant='outlined'
+            >
+              Cancel
+            </Button>
+          ) : (<></>)}
+        </ButtonContainer>
       </PopupContainer>
     </Background>
   );

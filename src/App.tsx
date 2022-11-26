@@ -8,7 +8,8 @@ import {
   MainContainer,
 } from 'components';
 import {
-  Landing
+  Landing,
+  SignUp
 } from 'pages';
 
 function App() {
@@ -21,9 +22,9 @@ function App() {
       <MainContainer>
         <Routes>
           <Route path='/' element={<Landing />} />
-          <Route path='/sign-up' element={<></>} />
+          <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<></>} />
-          <Route path='/view/:username/:pageUrl' element={<Landing />} />
+          <Route path='/view/:username/:pageUrl' element={<></>} />
           <Route path='/settings' element={<LoginGate node={<></>} />} />
           <Route path='/dashboard' element={<LoginGate node={<></>} />} />
           <Route path='/edit/:pageUrl' element={<LoginGate node={<></>} />} />

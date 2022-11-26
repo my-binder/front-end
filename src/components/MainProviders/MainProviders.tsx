@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import { AlertProvider } from 'react-styled-alert';
-import { GlobalStyle } from 'assets/styles';
+import { GlobalStyle, MUITheme } from 'components';
 import { UserProvider } from 'contexts';
 
 export function MainProviders(props: { children: ReactNode }) {
@@ -13,7 +13,9 @@ export function MainProviders(props: { children: ReactNode }) {
         <BrowserRouter>
           <AlertProvider>
             <UserProvider>
-              {props.children}
+              <MUITheme>
+                {props.children}
+              </MUITheme>
             </UserProvider>
           </AlertProvider>
         </BrowserRouter>

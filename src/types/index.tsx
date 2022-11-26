@@ -59,9 +59,3 @@ export type UseRequestReturn<Type> = [
     config?: AxiosRequestConfig<any>
   ) => void
 ]
-
-export type PopupData = {
-  message: string;
-  onOk: () => void;
-  onCancel: (() => void) | null;
-}

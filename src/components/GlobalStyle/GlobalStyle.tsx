@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'react-style-reset';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   ${reset};
 
   :root {
@@ -43,5 +43,3 @@ const GlobalStyle = createGlobalStyle`
     right: 0px;
   }
 `;
-
-export default GlobalStyle;

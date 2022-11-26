@@ -43,46 +43,11 @@ export const Logo = styled.div`
 `;
 
 export const Buttons = styled.div`
+  width: 200px;
   display: flex;
-  > a:first-child {
-    margin-right: 44px;
-    cursor: pointer;
-    font-family: var(--headerfont);
-    font-size: 28px;
-    color: var(--bgcolor1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s;
-    :hover {
-      color: var(--maincolor);
-    }
-    @media (max-width: 800px) {
-      font-size: 18px;
-      margin-right: 18px;
-    }
-  }
-  > a:last-child {
-    width: 112px;
-    height: 36px;
-    border-radius: 4px;
-    background-color: var(--contrastcolor2);
-    cursor: pointer;
-    font-family: var(--headerfont);
-    font-size: 28px;
-    color: var(--contrastcolor1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s;
-    :hover {
-      background-color: var(--maincolor);
-    }
-    @media (max-width: 800px) {
-      font-size: 18px;
-      width: 82px;
-      height: 30px;
-    }
+  justify-content: space-between;
+  @media (max-width: 800px) {
+    width: 172px;
   }
 `;
 
@@ -112,7 +77,6 @@ export const DropdownButton = styled.div<{ active: boolean }>`
   :hover {
     transform: rotate(-90deg) scale(1.3);
   }
-    
   ${(props) => (
     props.active && css`
       transform: rotate(0deg);

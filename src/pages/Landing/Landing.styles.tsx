@@ -15,23 +15,6 @@ export const LogoWrapper = styled.div`
   }
 `;
 
-export const TitleWrapper = styled.div`
-  width: 100%;
-  margin: 64px 0px 12px 0px;
-  font-family: var(--headerfont);
-  font-size: 52px;
-  color: var(--contrastcolor1);
-  text-align: center;
-`;
-
-export const Text = styled.div`
-  margin-top: 32px;
-  font-family: var(--scriptfont);
-  font-size: 28px;
-  color: var(--textcolor1);
-  text-align: center;
-`;
-
 export const LinkWrapper = styled.div`
   margin-top: 44px;
   a {

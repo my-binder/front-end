@@ -7,20 +7,24 @@ const API_URL: string = import.meta.env.VITE_API_URL as string;
 export function useRequest<Type>(): UseRequestReturn<Type> {
   const [loading, setLoading] = useState<boolean>(false);
   
-  function sendRequest(
+  const sendRequest = (
     method: 'get' | 'post' | 'put' | 'patch' | 'delete',
     route: string,
     body: object,
     thenFn: (res: UseRequestResponse<Type>) => void,
     catchFn: (err: UseRequestError) => void,
     config?: AxiosRequestConfig<any>,
-  ) {
+  ) => {
+    if (loading) return;
+
     setLoading(true);
     const url = API_URL + route;
+
     const thenFunc = (res: AxiosResponse<any, any>) => {
       thenFn({ status: res.status, data: res.data as Type });
       setLoading(false);
     };
+
     const catchFunc = (err: any) => {
       let error: UseRequestError = { status: 500, message: 'Internal server error' };
       if (axios.isAxiosError(err) && err.response)
@@ -29,6 +33,7 @@ export function useRequest<Type>(): UseRequestReturn<Type> {
       catchFn(error);
       setLoading(false);
     };
+    
     switch (method) {
       case 'get': {
         axios.get(url, config).then(thenFunc).catch(catchFunc);

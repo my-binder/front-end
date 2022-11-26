@@ -8,10 +8,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@fontsource/bebas-neue": "^4.5.9",
     "@fontsource/black-han-sans": "^4.5.9",
     "@fontsource/roboto": "^4.5.8",
     "@fontsource/ubuntu": "^4.5.11",
+    "@mui/lab": "^5.0.0-alpha.109",
     "@mui/material": "^5.10.15",
     "@mui/styled-engine-sc": "^5.10.14",
     "axios": "^1.1.3",

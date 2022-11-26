@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAlert } from 'react-styled-alert';
+import { useUserData, usePage } from 'hooks';
+import { useSignOut } from 'api';
 import { MdAutoStories, MdLogout, MdOutlineSettings } from 'react-icons/md';
 import { IoIosArrowDropdown } from 'react-icons/io';
 import { RiDashboardLine } from 'react-icons/ri';
-import { useUserData, usePage } from 'hooks';
-import { useSignOut } from 'api';
+import { Button } from '@mui/material';
 import {
   Buttons,
   Container,
@@ -58,12 +59,24 @@ export function Header() {
           </UserContainer>
         ) : (
           <Buttons>
-            <Link to='/login' data-cy='LOGIN'>
+            <Button
+              variant='outlined'
+              color='secondary'
+              component={Link}
+              to='/sign-in'
+              data-cy='LOGIN'
+            >
               Login
-            </Link>
-            <Link to='/sign-up' data-cy='SIGN_UP'>
+            </Button>
+            <Button
+              variant='contained'
+              color='primary'
+              component={Link}
+              to='/sign-up'
+              data-cy='SIGN_UP'
+            >
               Sign Up
-            </Link>
+            </Button>
           </Buttons>
         )}
       </Container>

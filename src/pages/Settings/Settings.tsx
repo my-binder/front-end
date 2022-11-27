@@ -20,6 +20,9 @@ export function Settings() {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     submit(email, urlName, displayName, newPassword, oldPassword);
+    setNewPassword('');
+    setConfirmNewPassword('');
+    setOldPassword('');
   };
 
   return (

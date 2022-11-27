@@ -16,11 +16,12 @@ export function useAutoLogin(): [boolean] {
     };
 
     sendRequest(
-      'post',
+      'get',
       '/sign-in-from-token',
       {},
       (res) => setUser({ ...res.data, token }),
       (err) => {
+        console.log(err);
         popup('Automatic login failed.');
         removeToken();
       },

@@ -8,6 +8,7 @@ import {
   MainContainer,
 } from 'components';
 import {
+  Dashboard,
   Landing,
   Settings,
   SignIn,
@@ -28,7 +29,7 @@ function App() {
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/view/:username/:pageUrl' element={<></>} />
           <Route path='/settings' element={<LoginGate node={<Settings />} />} />
-          <Route path='/dashboard' element={<LoginGate node={<></>} />} />
+          <Route path='/dashboard' element={<LoginGate node={<Dashboard />} />} />
           <Route path='/edit/:pageUrl' element={<LoginGate node={<></>} />} />
         </Routes>
       </MainContainer>

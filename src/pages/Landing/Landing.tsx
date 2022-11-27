@@ -32,7 +32,7 @@ export function Landing() {
       </Typography>
       <Button
         variant='text'
-        color='primary'
+        color='success'
         size='large'
         style={{ marginTop: '20px' }}
         component={Link}

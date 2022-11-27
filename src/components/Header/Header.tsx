@@ -81,15 +81,44 @@ export function Header() {
         )}
       </Container>
       <DropdownMenu active={dropdown}>
-        <Link to='/dashboard' data-cy='TO_DASHBOARD'>
-          <RiDashboardLine />Dashboard
-        </Link>
-        <Link to='/settings' data-cy='TO_SETTINGS'>
-          <MdOutlineSettings />Account settings
-        </Link>
-        <div onClick={handleSignOut} data-cy='SIGN_OUT'>
-          <MdLogout />Sign Out
-        </div>
+        <Button
+          disabled={!dropdown}
+          variant='text'
+          color='secondary'
+          fullWidth
+          startIcon={<RiDashboardLine />}
+          component={Link}
+          to='/dashboard'
+          data-cy='TO_DASHBOARD'
+          style={{ justifyContent: 'start', paddingLeft: '16px', margin: '4px 0px', transition: '0s' }}
+        >
+          Dashboard
+        </Button>
+        <Button
+          disabled={!dropdown}
+          variant='text'
+          color='secondary'
+          fullWidth
+          startIcon={<MdOutlineSettings />}
+          component={Link}
+          to='/settings'
+          data-cy='TO_SETTINGS'
+          style={{ justifyContent: 'start', paddingLeft: '16px', margin: '4px 0px', transition: '0s' }}
+        >
+          Settings
+        </Button>
+        <Button
+          disabled={!dropdown}
+          variant='text'
+          color='secondary'
+          fullWidth
+          startIcon={<MdLogout />}
+          onClick={handleSignOut}
+          data-cy='SIGN_OUT'
+          style={{ justifyContent: 'start', paddingLeft: '16px', margin: '4px 0px' }}
+        >
+          Sign Out
+        </Button>
       </DropdownMenu>
     </>
   );

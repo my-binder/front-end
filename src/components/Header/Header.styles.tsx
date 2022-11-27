@@ -93,38 +93,20 @@ export const DropdownMenu = styled.div<{ active: boolean }>`
   right: 16px;
   z-index: 1;
   width: 256px;
-  height: 128px;
-  padding-bottom: 16px;
+  height: 160px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: end;
   background-color: var(--divcolor1);
   border-radius: 0px 0px 16px 16px;
   border: 2px solid var(--textcolor1);
   border-top: none;
   transition: transform 0.2s;
-  transform: translateY(-64px);
+  transform: translateY(-100px);
   ${(props) => (
     props.active && css`
       transform: translateY(64px);
     `
   )};
-  > a,div {
-    margin-left: 32px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-family: var(--scriptfont);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--textcolor1);
-    transition: 0.2s;
-    svg {
-      font-size: 20px;
-      margin-right: 16px;
-    }
-    :hover {
-      color: var(--contrastcolor2);
-    }
-  }
 `;

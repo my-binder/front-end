@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSignUp } from 'api';
+import { checkError } from 'utils';
 import { TextField, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { Container, FormContainer } from './SignUp.styles';
@@ -12,10 +13,6 @@ export function SignUp() {
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [submitting, error, submit] = useSignUp();
-
-  const checkError = (entry: string) => {
-    return error.includes(entry);
-  };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -39,7 +36,7 @@ export function SignUp() {
             id='email'
             label='Email'
             color='secondary'
-            error={checkError('Email')}
+            error={checkError('Email', error)}
             margin='normal'
             fullWidth
             helperText="You'll need to confirm it"
@@ -54,7 +51,7 @@ export function SignUp() {
             id='urlName'
             label='URL Name'
             color='secondary'
-            error={checkError('URL Name')}
+            error={checkError('URL Name', error)}
             margin='normal'
             fullWidth
             helperText="This will show up on your URLs"
@@ -68,7 +65,7 @@ export function SignUp() {
             id='displayName'
             label='Display Name'
             color='secondary'
-            error={checkError('Display Name')}
+            error={checkError('Display Name', error)}
             margin='normal'
             fullWidth
             helperText="How we refer to you"
@@ -82,7 +79,7 @@ export function SignUp() {
             id='password'
             label='Password'
             color='secondary'
-            error={checkError('Password')}
+            error={checkError('Password', error)}
             margin='normal'
             fullWidth
             helperText="Your password"
@@ -124,7 +121,7 @@ export function SignUp() {
             color='primary'
             type='submit'
             data-cy='SUBMIT'
-            style={{marginTop: '32px'}}
+            style={{ marginTop: '32px', alignSelf: 'center' }}
           >
             Submit
           </LoadingButton>

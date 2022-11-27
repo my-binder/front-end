@@ -16,7 +16,6 @@ export function Landing() {
       <Typography
         variant='subtitle1'
         color='text.primary'
-        component='div'
       >
         MyBinder is an app for creating personal pages like portfolios,
         resumes and others. It's designed to be easy to learn and to
@@ -26,7 +25,6 @@ export function Landing() {
       <Typography
         variant='subtitle1'
         color='text.primary'
-        component='div'
         style={{marginTop: '32px'}}
       >
         To start using, just make an account. It's totally free and we

@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useRequest, useSetUser, useStorageToken } from 'hooks';
 import { FullUser } from 'types';
 
-export function useSignIn() {
+export function useSignIn(): [
+  boolean,
+  string,
+  (email: string, password: string) => void
+] {
   const [error, setError] = useState<string>('');
   const navigate = useNavigate();
   const setUser = useSetUser();

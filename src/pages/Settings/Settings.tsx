@@ -1,40 +1,38 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useSignUp } from 'api';
+import { useUserData } from 'hooks';
+import { useUpdateUser } from 'api';
 import { checkError } from 'utils';
 import { TextField, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-import { Container, FormContainer } from './SignUp.styles';
+import { Container, FormContainer } from './Settings.styles';
 
-export function SignUp() {
-  const [email, setEmail] = useState<string>('');
-  const [urlName, setUrlName] = useState<string>('');
-  const [displayName, setDisplayName] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [confirmPassword, setConfirmPassword] = useState<string>('');
-  const [submitting, error, submit] = useSignUp();
+export function Settings() {
+  const user = useUserData();
+  const [email, setEmail] = useState<string>(user.email);
+  const [urlName, setUrlName] = useState<string>(user.urlName);
+  const [displayName, setDisplayName] = useState<string>(user.displayName);
+  const [newPassword, setNewPassword] = useState<string>('');
+  const [confirmNewPassword, setConfirmNewPassword] = useState<string>('');
+  const [oldPassword, setOldPassword] = useState<string>('');
+  const [submitting, error, submit] = useUpdateUser();
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    submit(email, urlName, displayName, password);
+    submit(email, urlName, displayName, newPassword, oldPassword);
   };
 
   return (
     <>
       <Helmet>
-        <title>MyBinder | Sign Up</title>
+        <title>MyBinder | Account Settings</title>
       </Helmet>
       <Typography variant='h1' color='secondary'>
-        Sign Up
-      </Typography>
-      <Typography variant='subtitle1' color='secondary'>
-        Create an account now and start creating your own personalized web pages!
-        All of these entries can be changed later, so don't worry too much.
+        Account Settings
       </Typography>
       <Container>
         <FormContainer onSubmit={handleSubmit}>
           <TextField
-            id='email'
             label='Email'
             color='secondary'
             error={checkError('Email', error)}
@@ -49,7 +47,6 @@ export function SignUp() {
             autoFocus
           />
           <TextField
-            id='urlName'
             label='URL Name'
             color='secondary'
             error={checkError('URL Name', error)}
@@ -63,7 +60,6 @@ export function SignUp() {
             data-cy='URL_NAME'
           />
           <TextField
-            id='displayName'
             label='Display Name'
             color='secondary'
             error={checkError('Display Name', error)}
@@ -77,32 +73,45 @@ export function SignUp() {
             data-cy='DISPLAY_NAME'
           />
           <TextField
-            id='password'
-            label='Password'
+            label='New Password'
             color='secondary'
-            error={checkError('Password', error)}
+            error={checkError('New Password', error)}
             margin='normal'
             fullWidth
-            helperText="Your password"
+            helperText="To change your password"
             type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
             disabled={submitting}
-            data-cy='PASSWORD'
+            data-cy='NEW_PASSWORD'
+            style={{ marginTop: '64px' }}
           />
           <TextField
-            id='confirmPassword'
-            label='Confirm Password'
+            label='Confirm New Password'
             color='secondary'
-            error={password !== confirmPassword}
+            error={newPassword !== confirmNewPassword}
             margin='normal'
             fullWidth
-            helperText="Type your password again"
+            helperText="Type your new password again"
             type='password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmNewPassword}
+            onChange={(e) => setConfirmNewPassword(e.target.value)}
             disabled={submitting}
-            data-cy='PASSWORD_CONFIRM'
+            data-cy='NEW_PASSWORD_CONFIRM'
+          />
+          <TextField
+            label='Password'
+            color='secondary'
+            error={checkError('Old Password', error)}
+            margin='normal'
+            fullWidth
+            helperText="Type your current password to update anything"
+            type='password'
+            value={oldPassword}
+            onChange={(e) => setOldPassword(e.target.value)}
+            disabled={submitting}
+            data-cy='OLD_PASSWORD'
+            style={{ marginTop: '64px' }}
           />
           {error ? (
             <Typography
@@ -116,7 +125,7 @@ export function SignUp() {
             <></>
           )}
           <LoadingButton
-            disabled={submitting || password !== confirmPassword}
+            disabled={submitting || newPassword !== confirmNewPassword}
             loading={submitting}
             variant='contained'
             color='primary'

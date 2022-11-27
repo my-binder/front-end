@@ -9,6 +9,7 @@ import {
 } from 'components';
 import {
   Landing,
+  Settings,
   SignIn,
   SignUp
 } from 'pages';
@@ -26,7 +27,7 @@ function App() {
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/view/:username/:pageUrl' element={<></>} />
-          <Route path='/settings' element={<LoginGate node={<></>} />} />
+          <Route path='/settings' element={<LoginGate node={<Settings />} />} />
           <Route path='/dashboard' element={<LoginGate node={<></>} />} />
           <Route path='/edit/:pageUrl' element={<LoginGate node={<></>} />} />
         </Routes>

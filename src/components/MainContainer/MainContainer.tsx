@@ -18,5 +18,5 @@ export function MainContainer(props: { children: React.ReactNode }) {
         MyBinder - Rafael de Lima Bordoni, 2022
       </BottomText>
     </Container>
-  );
+);
 }

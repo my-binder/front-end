@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useUserData } from 'hooks';
 import { useUpdateUser } from 'api';
+import { Container } from 'components';
 import { checkError } from 'utils';
 import { TextField, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-import { Container, FormContainer } from './Settings.styles';
+import { FormContainer } from './Settings.styles';
 
 export function Settings() {
   const user = useUserData();
@@ -33,7 +34,7 @@ export function Settings() {
       <Typography variant='h1' color='secondary'>
         Account Settings
       </Typography>
-      <Container>
+      <Container margin='32px 0px 0px 0px'>
         <FormContainer onSubmit={handleSubmit}>
           <TextField
             label='Email'

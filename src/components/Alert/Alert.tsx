@@ -1,10 +1,7 @@
 import { useAlertData } from 'react-styled-alert';
+import { Container } from 'components';
 import { Button, Typography } from '@mui/material';
-import {
-  Background,
-  PopupContainer,
-  ButtonContainer
-} from './Alert.styles';
+import { Background, ButtonContainer } from './Alert.styles';
 
 export function Alert() {
   const data = useAlertData();
@@ -12,7 +9,7 @@ export function Alert() {
 
   return (
     <Background>
-      <PopupContainer>
+      <Container width='420px' bordered extra='backdrop-filter: blur(3px)'>
         <Typography variant='body1' color='text.primary'>
           {data.content}
         </Typography>
@@ -34,7 +31,7 @@ export function Alert() {
             </Button>
           ) : (<></>)}
         </ButtonContainer>
-      </PopupContainer>
+      </Container>
     </Background>
   );
 }

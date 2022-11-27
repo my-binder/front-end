@@ -1,4 +1,5 @@
 export * from './Alert/Alert';
+export * from './Container/Container';
 export * from './CoverSpinner/CoverSpinner';
 export * from './GlobalStyle/GlobalStyle';
 export * from './Header/Header';

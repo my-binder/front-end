@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSignUp } from 'api';
+import { Container } from 'components';
 import { checkError } from 'utils';
 import { TextField, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-import { Container, FormContainer } from './SignUp.styles';
+import { FormContainer } from './SignUp.styles';
 
 export function SignUp() {
   const [email, setEmail] = useState<string>('');
@@ -31,7 +32,7 @@ export function SignUp() {
         Create an account now and start creating your own personalized web pages!
         All of these entries can be changed later, so don't worry too much.
       </Typography>
-      <Container>
+      <Container margin='32px 0px 0px 0px'>
         <FormContainer onSubmit={handleSubmit}>
           <TextField
             id='email'

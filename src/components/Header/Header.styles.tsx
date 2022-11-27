@@ -11,11 +11,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0px 44px;
-  background-image: linear-gradient(
-    to bottom,
-    var(--divcolor4-light),
-    var(--divcolor4));
-  border-bottom: 2px solid var(--divcolor4-dark);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border-bottom: 2px solid white;
+
   @media (max-width: 800px) {
     padding: 0px 24px;
   }
@@ -98,15 +97,15 @@ export const DropdownMenu = styled.div<{ active: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: end;
-  background-color: var(--divcolor1);
-  border-radius: 0px 0px 16px 16px;
-  border: 2px solid var(--textcolor1);
-  border-top: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  border: 2px solid white;
   transition: transform 0.2s;
-  transform: translateY(-100px);
+  transform: translateY(-160px);
   ${(props) => (
     props.active && css`
-      transform: translateY(64px);
+      transform: translateY(72px);
     `
   )};
 `;

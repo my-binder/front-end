@@ -5,12 +5,12 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#489de2',
+      main: '#0e1da7',
       contrastText: '#ffffff'
     },
     secondary: {
       main: '#ffffff',
-      contrastText: '#ffffff'
+      contrastText: '#061a22'
     },
     error: {
       main: '#bb0fe6',

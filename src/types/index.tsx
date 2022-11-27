@@ -59,3 +59,12 @@ export type UseRequestReturn<Type> = [
     config?: AxiosRequestConfig<any>
   ) => void
 ]
+
+export type ContainerProps = {
+  bordered?: boolean;
+  noBackground?: boolean;
+  margin?: string;
+  width?: string;
+  height?: string;
+  extra?: string;
+}

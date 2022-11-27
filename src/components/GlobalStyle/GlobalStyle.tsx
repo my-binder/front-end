@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     --headerfont: 'Bebas Neue', cursive;
     --maincolor: #3ad6ea;
     --contrastcolor1: #ffffff;
-    --contrastcolor2: #489de2;
+    --contrastcolor2: #0e1da7;
     --contrastcolor3: #bb0fe6;
     --divcolor1: #1d362c;
     --divcolor1-light: #2a5241;

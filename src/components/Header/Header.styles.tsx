@@ -13,7 +13,7 @@ export const Container = styled.div`
   padding: 0px 44px;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
 
   @media (max-width: 800px) {
     padding: 0px 24px;
@@ -100,7 +100,7 @@ export const DropdownMenu = styled.div<{ active: boolean }>`
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   border-radius: 8px;
-  border: 2px solid white;
+  border: 1px solid white;
   transition: transform 0.2s;
   transform: translateY(-160px);
   ${(props) => (

@@ -17,7 +17,7 @@ export const Style = styled.div<ContainerProps>`
      'transparent' : 'rgba(255, 255, 255, 0.1)'
   )};
   border: ${(props) => (props.bordered ?
-    '2px solid white;' : 'none'
+    '1px solid white;' : 'none'
   )};
 
   @media (max-width: 800px) {

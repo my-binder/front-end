@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  mybinder-production:
+  mybinder-frontend:
     build:
       context: .
       dockerfile: Dockerfile

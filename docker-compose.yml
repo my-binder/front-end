@@ -1,10 +1,10 @@
-version: "3.8"
+version: '3'
 services:
   mybinder-frontend:
+    container_name: mybinder-frontend
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: mybinder-frontend
     working_dir: /usr/src/mybinder
     command: npm run build
     environment:

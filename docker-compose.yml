@@ -1,6 +1,7 @@
 version: '3'
 services:
   mybinder-frontend:
+    container_name: mybinder-frontend
     image: mybinder-frontend:latest
     build:
       context: .

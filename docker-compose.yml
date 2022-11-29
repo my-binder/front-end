@@ -1,15 +1,10 @@
 version: '3'
 services:
   mybinder-frontend:
-    container_name: mybinder-frontend
-    build:
-      context: .
-      dockerfile: Dockerfile
-    working_dir: /usr/src/mybinder
-    command: npm run build
+    image: mybinder-frontend:1.0.0
+    command: npm run preview 
     environment:
       NODE_ENV: production
       VITE_API_URL: ${VITE_API_URL}
-      GENERATE_SOURCEMAP: 
-    volumes:
-      - /usr/src/mybinder/front-end:/usr/src/mybinder/build
+    ports:
+      - 443:4173

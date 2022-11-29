@@ -4,12 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: mybinder-front
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "5"
+    container_name: mybinder-frontend
     working_dir: /usr/src/mybinder
     command: npm run build
     environment:

@@ -1,10 +1,13 @@
 version: '3'
 services:
   mybinder-frontend:
-    image: mybinder-frontend:1.0.0
-    command: npm run preview 
+    image: mybinder-frontend:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       NODE_ENV: production
       VITE_API_URL: ${VITE_API_URL}
     ports:
       - 443:4173
+    command: npm run preview

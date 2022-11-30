@@ -10,7 +10,7 @@ services:
     volumes:
       - frontend-build:/var/www/html
   nginx:
-    container_name: nginx
+    container_name: mybinder-nginx
     image: nginx
     build: ./nginx
     ports:

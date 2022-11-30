@@ -9,9 +9,9 @@ services:
       VITE_API_URL: ${VITE_API_URL}
     volumes:
       - frontend-build:/var/www/html
-  nginx:
+  mybinder-nginx:
     container_name: mybinder-nginx
-    image: nginx
+    image: mybinder-nginx
     build: ./nginx
     ports:
       - 443:443

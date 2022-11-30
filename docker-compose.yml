@@ -19,6 +19,6 @@ services:
     volumes:
       - frontend-build:/var/www/html
     depends_on:
-      - app_react
+      - mybinder-frontend
 volumes:
   frontend-build:

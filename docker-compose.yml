@@ -9,7 +9,7 @@ services:
     environment:
       NODE_ENV: production
       VITE_API_URL: ${VITE_API_URL}
-    volume:
+    volumes:
       - frontend-build:/var/www/html
   nginx:
     container_name: nginx

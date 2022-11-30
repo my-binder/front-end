@@ -3,9 +3,7 @@ services:
   mybinder-frontend:
     container_name: mybinder-frontend
     image: mybinder-frontend:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     environment:
       NODE_ENV: production
       VITE_API_URL: ${VITE_API_URL}

@@ -19,6 +19,7 @@ export function useRequest<Type>(): UseRequestReturn<Type> {
 
     setLoading(true);
     const url = API_URL + route;
+    console.log(url);
 
     const thenFunc = (res: AxiosResponse<any, any>) => {
       thenFn({ status: res.status, data: res.data as Type });

@@ -4,13 +4,12 @@ import { useAlert } from 'react-styled-alert';
 import { useUserData, usePage } from 'hooks';
 import { useSignOut } from 'api';
 import { MdAutoStories, MdLogout, MdOutlineSettings } from 'react-icons/md';
-import { IoIosArrowDropdown } from 'react-icons/io';
 import { RiDashboardLine } from 'react-icons/ri';
-import { Button } from '@mui/material';
+import { Button, IconButton, Divider } from '@mui/material';
+import { Menu } from '@mui/icons-material';
 import {
   Buttons,
   Container,
-  DropdownButton,
   DropdownMenu,
   Logo,
   UserContainer,
@@ -53,9 +52,9 @@ export function Header() {
             <UserMessage>
               {`Hi, ${user.displayName}!`}
             </UserMessage>
-            <DropdownButton active={dropdown}>
-              <IoIosArrowDropdown onClick={() => setDropdown(prev => !prev)} />
-            </DropdownButton>
+            <IconButton color='secondary' onClick={() => setDropdown(prev => !prev)}>
+              <Menu />
+            </IconButton>
           </UserContainer>
         ) : (
           <Buttons>
@@ -107,6 +106,7 @@ export function Header() {
         >
           Settings
         </Button>
+        <Divider style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}/>
         <Button
           disabled={!dropdown}
           variant='text'

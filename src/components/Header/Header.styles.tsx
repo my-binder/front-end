@@ -63,40 +63,15 @@ export const UserMessage = styled.p`
   font-weight: 700;
 `;
 
-export const DropdownButton = styled.div<{ active: boolean }>`
-  font-size: 40px;
-  color: var(--contrastcolor1);
-  transition: 0.2s;
-  margin-left: 32px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: rotate(-90deg);
-  :hover {
-    transform: rotate(-90deg) scale(1.3);
-  }
-  ${(props) => (
-    props.active && css`
-      transform: rotate(0deg);
-      :hover {
-        transform: rotate(0deg) scale(1.3);
-      }
-    `
-  )};
-`;
-
 export const DropdownMenu = styled.div<{ active: boolean }>`
   position: absolute;
   top: 0px;
   right: 16px;
   z-index: 1;
   width: 256px;
-  height: 160px;
   padding: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   border-radius: 8px;

@@ -5,15 +5,14 @@ import { useUserData, usePage } from 'hooks';
 import { useSignOut } from 'api';
 import { MdAutoStories, MdLogout, MdOutlineSettings } from 'react-icons/md';
 import { RiDashboardLine } from 'react-icons/ri';
-import { Button, IconButton, Divider } from '@mui/material';
+import { Button, IconButton, Divider, Typography } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import {
   Buttons,
   Container,
   DropdownMenu,
   Logo,
-  UserContainer,
-  UserMessage,
+  UserContainer
 } from './Header.styles';
 
 export function Header() {
@@ -49,9 +48,9 @@ export function Header() {
         </Logo>
         {user.email ? (
           <UserContainer>
-            <UserMessage>
-              {`Hi, ${user.displayName}!`}
-            </UserMessage>
+            <Typography variant='subtitle1' color='secondary' style={{ marginRight: '16px' }}>
+            {`Hi, ${user.displayName}!`}
+            </Typography>
             <IconButton color='secondary' onClick={() => setDropdown(prev => !prev)}>
               <Menu />
             </IconButton>

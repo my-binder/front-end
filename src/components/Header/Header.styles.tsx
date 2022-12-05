@@ -56,13 +56,6 @@ export const UserContainer = styled.div`
   align-items: center;
 `;
 
-export const UserMessage = styled.p`
-  font-family: var(--scriptfont);
-  color: var(--contrastcolor1);
-  font-size: 28px;
-  font-weight: 700;
-`;
-
 export const DropdownMenu = styled.div<{ active: boolean }>`
   position: absolute;
   top: 0px;

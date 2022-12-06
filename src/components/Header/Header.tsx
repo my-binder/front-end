@@ -3,15 +3,19 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAlert } from 'react-styled-alert';
 import { useUserData, usePage } from 'hooks';
 import { useSignOut } from 'api';
-import { MdAutoStories, MdLogout, MdOutlineSettings } from 'react-icons/md';
-import { RiDashboardLine } from 'react-icons/ri';
 import { Button, IconButton, Divider, Typography } from '@mui/material';
-import { Menu } from '@mui/icons-material';
+import {
+  Menu,
+  DashboardOutlined,
+  SettingsOutlined,
+  LogoutOutlined
+} from '@mui/icons-material';
 import {
   Buttons,
   Container,
   DropdownMenu,
   Logo,
+  LogoMobile,
   UserContainer
 } from './Header.styles';
 
@@ -40,12 +44,10 @@ export function Header() {
   return (
     <>
       <Container>
-        <Logo>
-          <Link to='/'>
-            <MdAutoStories />
-            <p>MyBinder</p>
-          </Link>
-        </Logo>
+        <Link to='/'>
+          <Logo src='src/assets/logo-horizontal.png'/>
+          <LogoMobile src='src/assets/logo-mini.png'/>
+        </Link>
         {user.email ? (
           <UserContainer>
             <Typography variant='subtitle1' color='secondary' style={{ marginRight: '16px' }}>
@@ -84,7 +86,7 @@ export function Header() {
           variant='text'
           color='secondary'
           fullWidth
-          startIcon={<RiDashboardLine />}
+          startIcon={<DashboardOutlined />}
           component={Link}
           to='/dashboard'
           data-cy='TO_DASHBOARD'
@@ -97,7 +99,7 @@ export function Header() {
           variant='text'
           color='secondary'
           fullWidth
-          startIcon={<MdOutlineSettings />}
+          startIcon={<SettingsOutlined />}
           component={Link}
           to='/settings'
           data-cy='TO_SETTINGS'
@@ -111,7 +113,7 @@ export function Header() {
           variant='text'
           color='secondary'
           fullWidth
-          startIcon={<MdLogout />}
+          startIcon={<LogoutOutlined />}
           onClick={handleSignOut}
           data-cy='SIGN_OUT'
           style={{ justifyContent: 'start', paddingLeft: '16px', margin: '4px 0px' }}

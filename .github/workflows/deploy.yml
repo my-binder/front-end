@@ -12,8 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       
-      - name: Updating
-        run: git pull origin main
+      - name: Upating
+        run: git fetch --prune --unshallow && git pull origin main
       
       - name: Clean-up
         run: |

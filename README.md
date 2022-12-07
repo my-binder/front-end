@@ -25,5 +25,3 @@ npm run dev
 ## License
 
 Licensed under MIT.
-
-aaaa

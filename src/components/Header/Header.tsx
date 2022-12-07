@@ -4,12 +4,9 @@ import { useAlert } from 'react-styled-alert';
 import { useUserData, usePage } from 'hooks';
 import { useSignOut } from 'api';
 import { Button, IconButton, Divider, Typography } from '@mui/material';
-import {
-  Menu,
-  DashboardOutlined,
-  SettingsOutlined,
-  LogoutOutlined
-} from '@mui/icons-material';
+import { BiMenu } from 'react-icons/bi';
+import { FiSettings } from 'react-icons/fi';
+import { MdOutlineDashboard, MdLogout } from 'react-icons/md';
 import {
   Buttons,
   Container,
@@ -18,6 +15,8 @@ import {
   LogoMobile,
   UserContainer
 } from './Header.styles';
+import HorizontalLogo from 'assets/logo-horizontal.png';
+import MiniLogo from 'assets/logo-mini.png';
 
 export function Header() {
   const [dropdown, setDropdown] = useState<boolean>(false);
@@ -45,8 +44,8 @@ export function Header() {
     <>
       <Container>
         <Link to='/'>
-          <Logo src='src/assets/logo-horizontal.png'/>
-          <LogoMobile src='src/assets/logo-mini.png'/>
+          <Logo src={HorizontalLogo}/>
+          <LogoMobile src={MiniLogo}/>
         </Link>
         {user.email ? (
           <UserContainer>
@@ -54,7 +53,7 @@ export function Header() {
             {`Hi, ${user.displayName}!`}
             </Typography>
             <IconButton color='secondary' onClick={() => setDropdown(prev => !prev)}>
-              <Menu />
+              <BiMenu />
             </IconButton>
           </UserContainer>
         ) : (
@@ -86,7 +85,7 @@ export function Header() {
           variant='text'
           color='secondary'
           fullWidth
-          startIcon={<DashboardOutlined />}
+          startIcon={<MdOutlineDashboard />}
           component={Link}
           to='/dashboard'
           data-cy='TO_DASHBOARD'
@@ -99,7 +98,7 @@ export function Header() {
           variant='text'
           color='secondary'
           fullWidth
-          startIcon={<SettingsOutlined />}
+          startIcon={<FiSettings />}
           component={Link}
           to='/settings'
           data-cy='TO_SETTINGS'
@@ -113,7 +112,7 @@ export function Header() {
           variant='text'
           color='secondary'
           fullWidth
-          startIcon={<LogoutOutlined />}
+          startIcon={<MdLogout />}
           onClick={handleSignOut}
           data-cy='SIGN_OUT'
           style={{ justifyContent: 'start', paddingLeft: '16px', margin: '4px 0px' }}

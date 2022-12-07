@@ -15,6 +15,8 @@ import {
   LogoMobile,
   UserContainer
 } from './Header.styles';
+import HorizontalLogo from 'assets/logo-horizontal.png';
+import MiniLogo from 'assets/logo-mini.png';
 
 export function Header() {
   const [dropdown, setDropdown] = useState<boolean>(false);
@@ -42,8 +44,8 @@ export function Header() {
     <>
       <Container>
         <Link to='/'>
-          <Logo src='src/assets/logo-horizontal.png'/>
-          <LogoMobile src='src/assets/logo-mini.png'/>
+          <Logo src={HorizontalLogo}/>
+          <LogoMobile src={MiniLogo}/>
         </Link>
         {user.email ? (
           <UserContainer>

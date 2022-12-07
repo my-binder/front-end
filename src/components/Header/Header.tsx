@@ -3,17 +3,20 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAlert } from 'react-styled-alert';
 import { useUserData, usePage } from 'hooks';
 import { useSignOut } from 'api';
-import { MdAutoStories, MdLogout, MdOutlineSettings } from 'react-icons/md';
-import { RiDashboardLine } from 'react-icons/ri';
 import { Button, IconButton, Divider, Typography } from '@mui/material';
-import { Menu } from '@mui/icons-material';
+import { BiMenu } from 'react-icons/bi';
+import { FiSettings } from 'react-icons/fi';
+import { MdOutlineDashboard, MdLogout } from 'react-icons/md';
 import {
   Buttons,
   Container,
   DropdownMenu,
   Logo,
+  LogoMobile,
   UserContainer
 } from './Header.styles';
+import HorizontalLogo from 'assets/logo-horizontal.png';
+import MiniLogo from 'assets/logo-mini.png';
 
 export function Header() {
   const [dropdown, setDropdown] = useState<boolean>(false);
@@ -40,19 +43,17 @@ export function Header() {
   return (
     <>
       <Container>
-        <Logo>
-          <Link to='/'>
-            <MdAutoStories />
-            <p>MyBinder</p>
-          </Link>
-        </Logo>
+        <Link to='/'>
+          <Logo src={HorizontalLogo}/>
+          <LogoMobile src={MiniLogo}/>
+        </Link>
         {user.email ? (
           <UserContainer>
             <Typography variant='subtitle1' color='secondary' style={{ marginRight: '16px' }}>
             {`Hi, ${user.displayName}!`}
             </Typography>
             <IconButton color='secondary' onClick={() => setDropdown(prev => !prev)}>
-              <Menu />
+              <BiMenu />
             </IconButton>
           </UserContainer>
         ) : (
@@ -84,7 +85,7 @@ export function Header() {
           variant='text'
           color='secondary'
           fullWidth
-          startIcon={<RiDashboardLine />}
+          startIcon={<MdOutlineDashboard />}
           component={Link}
           to='/dashboard'
           data-cy='TO_DASHBOARD'
@@ -97,7 +98,7 @@ export function Header() {
           variant='text'
           color='secondary'
           fullWidth
-          startIcon={<MdOutlineSettings />}
+          startIcon={<FiSettings />}
           component={Link}
           to='/settings'
           data-cy='TO_SETTINGS'

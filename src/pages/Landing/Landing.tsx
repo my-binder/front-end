@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { MdAutoStories } from 'react-icons/md';
 import { Typography, Button } from '@mui/material';
 import { LogoWrapper } from './Landing.styles';
+import Logo from 'assets/logo-full.png';
 
 export function Landing() {
   return (
@@ -10,10 +10,7 @@ export function Landing() {
       <Helmet>
         <title>MyBinder</title>
       </Helmet>
-      <LogoWrapper>
-        <MdAutoStories color='var(--maincolor)' size='160px' />
-        <h1>MyBinder</h1>
-      </LogoWrapper>
+      <LogoWrapper src={Logo} />
       <Typography variant='h1' color='secondary'>
         Welcome to MyBinder!
       </Typography>

@@ -20,24 +20,21 @@ export const Container = styled.div`
   }
 `;
 
-export const Logo = styled.div`
-  a {
-    font-family: var(--logofont);
-    font-size: 42px;
-    color: var(--contrastcolor1);
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  
-    svg {
-      margin-right: 16px;
-      margin-bottom: 6px;
-    }
-    p {
-      @media (max-width: 800px) {
-        display: none;
-      }
-    }
+export const Logo = styled.img`
+  height: 36px;
+  cursor: pointer;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+`;
+
+export const LogoMobile = styled.img`
+  height: 52px;
+  cursor: pointer;
+
+  @media (min-width: 800px) {
+    display: none;
   }
 `;
 

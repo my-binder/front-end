@@ -3,23 +3,27 @@ on:
     branches:
       - main
 
-name: Build and Deploy
+name: Deploy
 jobs:
   build:
     runs-on: self-hosted
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up production env variables
+        run: cp ~/.env.production $GITHUB_WORKSPACE
       
-      - name: Clean-up
+      - name: Build
         run: |
           cd ~
           docker compose down
-          docker rmi frontend api
-          docker volume rm ubuntu_front
-      
-      - name: Build
-        run: docker compose build
+          rm -rf ~/front-build/*
+          docker compose build
       
       - name: Run
         run: docker compose up -d
+      
+      - name: Clean-up
+        run: docker system prune

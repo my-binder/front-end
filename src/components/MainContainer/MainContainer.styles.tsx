@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+  height: 100vh;
+  width: 100vw;
   padding-top: ${(props: { noHeader: boolean }) => (props.noHeader ? '0px' : '64px')};
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-  background-image: linear-gradient(to bottom right, var(--bgcolor1), var(--bgcolor2));
+  background: linear-gradient(to bottom right, var(--bgcolor1), var(--bgcolor2));
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const PageContainer = styled.div`

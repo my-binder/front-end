@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { usePageService } from 'api';
+import { useLoadPages, useCreatePage } from 'api';
 import { checkError } from 'utils';
-import { Container } from 'components';
+import { Container, PageListItem } from 'components';
 import { MoonLoader } from 'react-spinners';
 import { Typography, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
@@ -12,16 +12,17 @@ export function Dashboard() {
   const [newPageTitle, setNewPageTitle] = useState<string>('');
   const [newPageUrlName, setNewPageUrlName] = useState<string>('');
   const [error, setError] = useState<string>('');
-  const api = usePageService();
+  const [pages, loading, load] = useLoadPages();
+  const [creating, create] = useCreatePage();
 
   const handleCreatePage = (e: React.SyntheticEvent) => {
     e.preventDefault();
     setError('');
-    api.create(
+    create(
       newPageTitle,
       newPageUrlName,
       () => {
-        api.load();
+        load();
         setNewPageTitle('');
         setNewPageUrlName('');
       },
@@ -42,7 +43,7 @@ export function Dashboard() {
           Create a new page
         </Typography>
         <FormContainer onSubmit={handleCreatePage}>
-        <TextField
+          <TextField
             label='Title'
             color='secondary'
             error={checkError('Title', error)}
@@ -52,7 +53,7 @@ export function Dashboard() {
             type='text'
             value={newPageTitle}
             onChange={(e) => setNewPageTitle(e.target.value)}
-            disabled={api.creating}
+            disabled={creating}
             data-cy='NEW_PAGE_TITLE'
           />
           <TextField
@@ -65,7 +66,7 @@ export function Dashboard() {
             type='text'
             value={newPageUrlName}
             onChange={(e) => setNewPageUrlName(e.target.value)}
-            disabled={api.creating}
+            disabled={creating}
             data-cy='NEW_PAGE_URL_NAME'
           />
           {error ? (
@@ -80,8 +81,8 @@ export function Dashboard() {
             <></>
           )}
           <LoadingButton
-            disabled={api.creating}
-            loading={api.creating}
+            disabled={creating}
+            loading={creating}
             variant='contained'
             color='primary'
             type='submit'
@@ -92,7 +93,7 @@ export function Dashboard() {
           </LoadingButton>
         </FormContainer>
       </Container>
-      {api.loading ? (
+      {loading ? (
         <SpinnerContainer>
           <MoonLoader
             size={120}
@@ -100,17 +101,23 @@ export function Dashboard() {
           />
         </SpinnerContainer>
       ) : (
-        api.pages === 'error' ? (
+        pages === 'error' ? (
           <Typography variant='body1' color='error' style={{ marginTop: '32px' }}>
             Loading pages failed!
           </Typography>
         ) : (
-          api.pages.length === 0 ? (
+          pages.length === 0 ? (
             <Typography variant='body1' color='text.secondary' style={{ marginTop: '32px' }}>
               You have no pages. Create one!
             </Typography>
           ) : (
-            <>asdlkfj</>
+            pages.map((value, index) => (
+              <PageListItem
+                key={index}
+                page={value}
+                reload={load}
+              />
+            ))
           )
         )
       )}

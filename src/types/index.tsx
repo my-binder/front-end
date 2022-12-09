@@ -15,7 +15,12 @@ export type Page = {
   id: number;
   title: string;
   urlName: string;
-}
+};
+
+export type UpdatePageData = {
+  title?: string;
+  urlName?: string;
+};
 
 export type FullPage = Page & { entries: Entry[] };
 
@@ -36,17 +41,17 @@ export type Entry = {
   imageUrl: string;
   sourceUrl: string;
   space: number;
-}
+};
 
 export type UseRequestResponse<Type> = {
   status: number;
   data: Type;
-}
+};
 
 export type UseRequestError = {
   status: number;
   message: string;
-}
+};
 
 export type UseRequestReturn<Type> = [
   loading: boolean,
@@ -58,7 +63,7 @@ export type UseRequestReturn<Type> = [
     catchFn: (err: UseRequestError) => void,
     config?: AxiosRequestConfig<any>
   ) => void
-]
+];
 
 export type ContainerProps = {
   bordered?: boolean;
@@ -67,4 +72,4 @@ export type ContainerProps = {
   width?: string;
   height?: string;
   extra?: string;
-}
+};

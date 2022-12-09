@@ -42,7 +42,7 @@ export function SignUp() {
             margin='normal'
             fullWidth
             helperText="To contact you in case you lose your password"
-            type='text'
+            type='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={submitting}

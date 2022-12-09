@@ -48,7 +48,6 @@ export function Settings() {
             onChange={(e) => setEmail(e.target.value)}
             disabled={submitting}
             data-cy='EMAIL'
-            autoFocus
           />
           <TextField
             label='URL Name'

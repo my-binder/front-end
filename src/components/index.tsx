@@ -7,3 +7,4 @@ export * from './LoginGate/LoginGate';
 export * from './MainContainer/MainContainer';
 export * from './MainProviders/MainProviders';
 export * from './MUITheme/MUITheme';
+export * from './PageListItem/PageListItem';

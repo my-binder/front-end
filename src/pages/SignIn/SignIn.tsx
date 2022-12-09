@@ -34,7 +34,7 @@ export function SignIn() {
             error={checkError('Email', error)}
             margin='normal'
             fullWidth
-            type='text'
+            type='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={submitting}

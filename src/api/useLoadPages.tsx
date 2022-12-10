@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useAlert } from 'react-styled-alert';
 import { useRequest, useToken } from 'hooks';
 import { Page } from 'types';
 
 export function useLoadPages(): [
-  pages: Page[] | 'error',
+  pages: Page[],
+  error: string,
   loading: boolean,
   load: () => void
  ] {
-  const [pages, setPages] = useState<Page[] | 'error'>([]);
+   const [pages, setPages] = useState<Page[]>([]);
+   const [error, setError] = useState<string>('');
   const [loading, loadRequest] = useRequest<Page[]>();
-  const popup = useAlert();
   const token = useToken();
 
   const load = () => {
@@ -19,10 +19,7 @@ export function useLoadPages(): [
       '/pages',
       {},
       (res) => setPages(res.data),
-      (err) => {
-        popup(err.message);
-        setPages('error');
-      },
+      (err) => setError(err.message),
       { headers: {
         Authorization: `Bearer ${token}`
       }}
@@ -31,5 +28,5 @@ export function useLoadPages(): [
 
   useEffect(load, []);
 
-  return [pages, loading, load];
+  return [pages, error, loading, load];
 }

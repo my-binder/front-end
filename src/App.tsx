@@ -9,6 +9,7 @@ import {
 } from 'components';
 import {
   Dashboard,
+  EditPage,
   Landing,
   Settings,
   SignIn,
@@ -30,7 +31,7 @@ function App() {
           <Route path='/view/:username/:pageUrl' element={<></>} />
           <Route path='/settings' element={<LoginGate node={<Settings />} />} />
           <Route path='/dashboard' element={<LoginGate node={<Dashboard />} />} />
-          <Route path='/edit/:pageUrl' element={<LoginGate node={<></>} />} />
+          <Route path='/edit/:pageUrl' element={<LoginGate node={<EditPage />} />} />
         </Routes>
       </MainContainer>
       <Alert />

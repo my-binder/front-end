@@ -11,13 +11,11 @@ import { FormContainer, SpinnerContainer } from './Dashboard.styles';
 export function Dashboard() {
   const [newPageTitle, setNewPageTitle] = useState<string>('');
   const [newPageUrlName, setNewPageUrlName] = useState<string>('');
-  const [error, setError] = useState<string>('');
-  const [pages, loading, load] = useLoadPages();
-  const [creating, create] = useCreatePage();
+  const [pages, loadError, loading, load] = useLoadPages();
+  const [createError, creating, create] = useCreatePage();
 
   const handleCreatePage = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    setError('');
     create(
       newPageTitle,
       newPageUrlName,
@@ -25,8 +23,7 @@ export function Dashboard() {
         load();
         setNewPageTitle('');
         setNewPageUrlName('');
-      },
-      (err) => setError(err.message)
+      }
     );
   };
 
@@ -46,7 +43,7 @@ export function Dashboard() {
           <TextField
             label='Title'
             color='secondary'
-            error={checkError('Title', error)}
+            error={checkError('Title', createError)}
             margin='normal'
             fullWidth
             helperText="Your page's title"
@@ -59,7 +56,7 @@ export function Dashboard() {
           <TextField
             label='URL Name'
             color='secondary'
-            error={checkError('URL Name', error)}
+            error={checkError('URL Name', createError)}
             margin='normal'
             fullWidth
             helperText="This will show up on your page's URL"
@@ -69,13 +66,13 @@ export function Dashboard() {
             disabled={creating}
             data-cy='NEW_PAGE_URL_NAME'
           />
-          {error ? (
+          {createError ? (
             <Typography
               variant='body1'
               color='error'
               style={{ marginTop: '32px', whiteSpace: 'pre' }}
             >
-              {error}
+              {createError}
             </Typography>
           ) : (
             <></>
@@ -101,9 +98,9 @@ export function Dashboard() {
           />
         </SpinnerContainer>
       ) : (
-        pages === 'error' ? (
+        loadError ? (
           <Typography variant='body1' color='error' style={{ marginTop: '32px' }}>
-            Loading pages failed!
+            {loadError}
           </Typography>
         ) : (
           pages.length === 0 ? (

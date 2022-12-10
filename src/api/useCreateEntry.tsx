@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { useRequest, useToken } from 'hooks';
 
-export function useCreatePage(): [
+export function useCreateEntry(pageId: number): [
   error: string,
   creating: boolean,
   create: (
-    title: string,
-    urlName: string,
-    onSuccess: () => void
+    onSuccess: () => void,
   ) => void
 ] {
   const [error, setError] = useState<string>('');
@@ -15,15 +13,13 @@ export function useCreatePage(): [
   const token = useToken();
 
   const create = (
-    title: string,
-    urlName: string,
-    onSuccess: () => void,
+    onSuccess: () => void
   ) => {
     setError('');
     createRequest(
       'post',
-      '/pages',
-      { title, urlName },
+      `/entries/${pageId}`,
+      {},
       onSuccess,
       (err) => setError(err.message),
       { headers: {

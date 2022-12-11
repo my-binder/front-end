@@ -1,6 +1,7 @@
 export * from './Alert/Alert';
 export * from './Container/Container';
 export * from './CoverSpinner/CoverSpinner';
+export * from './EditEntry/EditEntry';
 export * from './GlobalStyle/GlobalStyle';
 export * from './Header/Header';
 export * from './LoginGate/LoginGate';

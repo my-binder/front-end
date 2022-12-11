@@ -1,10 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useLoadEntries, useCreateEntry } from 'api';
+import { EditEntry } from 'components';
 import { FaPlus } from 'react-icons/fa';
 import { MoonLoader } from 'react-spinners';
 import { Typography, Button } from '@mui/material';
-import { SpinnerWrapper } from './EditPage.styles';
+import { SpinnerWrapper, AddButtonWrapper } from './EditPage.styles';
 
 export function EditPage() {
   const [page, entries, loadError, loading, load] = useLoadEntries();
@@ -38,28 +39,33 @@ export function EditPage() {
         ) : (
           <>
             {entries.map((entry, index) => (
-              <div key={index} style={{ backgroundColor: 'aqua', padding: '32px' }}>
-                {entry.index}
-              </div>
-            ))}
-            <Button
-              variant='outlined'
-              color='secondary'
-              disabled={creating}
-              fullWidth
-              style={{
-                height: '224px',
-                marginTop: '64px',
-                flexDirection: 'column'
-              }}
-              onClick={handleNewEntry}
-            >
-              Add an Entry
-              <FaPlus
-                size={100}
-                style={{ marginTop: '32px' }}
+              <EditEntry
+                key={index}
+                entry={entry}
+                pageId={page.id}
+                reload={load}
               />
-            </Button>
+            ))}
+            <AddButtonWrapper>
+              <Button
+                variant='outlined'
+                color='secondary'
+                disabled={creating}
+                fullWidth
+                style={{
+                  height: '224px',
+                  marginTop: '64px',
+                  flexDirection: 'column'
+                }}
+                onClick={handleNewEntry}
+              >
+                Add an Entry
+                <FaPlus
+                  size={100}
+                  style={{ marginTop: '32px' }}
+                />
+              </Button>
+            </AddButtonWrapper>
             {createError ? (
               <Typography
                 variant='body1'

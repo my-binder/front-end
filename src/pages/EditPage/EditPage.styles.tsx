@@ -7,3 +7,12 @@ export const SpinnerWrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const AddButtonWrapper = styled.div`
+  width: 800px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 0px 32px;
+  }
+`;

@@ -1,6 +1,7 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useLoadEntries, useCreateEntry } from 'api';
+import { useParams } from 'react-router-dom';
+import { useUserData } from 'hooks';
+import { useCreateEntry, useLoadFullPage } from 'api';
 import { EditEntry } from 'components';
 import { FaPlus } from 'react-icons/fa';
 import { MoonLoader } from 'react-spinners';
@@ -8,11 +9,15 @@ import { Typography, Button } from '@mui/material';
 import { SpinnerWrapper, AddButtonWrapper } from './EditPage.styles';
 
 export function EditPage() {
-  const [page, entries, loadError, loading, load] = useLoadEntries();
-  const [createError, creating, create] = useCreateEntry(page.id);
+  const { pageUrl } = useParams();
+  const user = useUserData();
+  const [page, loadError, loading, load] = useLoadFullPage(
+    user.urlName,
+    pageUrl as string
+  );
+  const [createError, creating, create] = useCreateEntry(page.page.id);
 
-  const handleNewEntry = (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const handleNewEntry = () => {
     create(() => load());
   };
 
@@ -20,7 +25,7 @@ export function EditPage() {
     <>
       <Helmet>
         <title>
-          {`MyBinder | Editing ${page.title}`}
+          {`MyBinder | Editing ${page.page.title}`}
         </title>
       </Helmet>
       {loading ? (
@@ -38,11 +43,11 @@ export function EditPage() {
           </Typography>
         ) : (
           <>
-            {entries.map((entry, index) => (
+            {page.entries.map((entry, index) => (
               <EditEntry
                 key={index}
                 entry={entry}
-                pageId={page.id}
+                pageId={page.page.id}
                 reload={load}
               />
             ))}

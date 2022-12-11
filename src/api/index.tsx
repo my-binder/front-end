@@ -3,7 +3,7 @@ export * from './useCreateEntry';
 export * from './useCreatePage';
 export * from './useEraseEntry';
 export * from './useErasePage';
-export * from './useLoadEntries';
+export * from './useLoadFullPage';
 export * from './useLoadPages';
 export * from './useMoveEntry';
 export * from './useSignIn';

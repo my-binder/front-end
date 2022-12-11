@@ -22,7 +22,11 @@ export type UpdatePageData = {
   urlName?: string;
 };
 
-export type FullPage = Page & { entries: Entry[] };
+export type FullPage = {
+  page: Page;
+  owner: User;
+  entries: Entry[];
+};
 
 export type EntryType =
   'title' |

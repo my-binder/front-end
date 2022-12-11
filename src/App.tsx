@@ -13,7 +13,8 @@ import {
   Landing,
   Settings,
   SignIn,
-  SignUp
+  SignUp,
+  ViewPage
 } from 'pages';
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
           <Route path='/' element={<Landing />} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<SignIn />} />
-          <Route path='/view/:username/:pageUrl' element={<></>} />
+          <Route path='/view/:userUrl/:pageUrl' element={<ViewPage />} />
           <Route path='/settings' element={<LoginGate node={<Settings />} />} />
           <Route path='/dashboard' element={<LoginGate node={<Dashboard />} />} />
           <Route path='/edit/:pageUrl' element={<LoginGate node={<EditPage />} />} />

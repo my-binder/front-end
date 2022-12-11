@@ -19,6 +19,7 @@ jobs:
         run: |
           cd ~
           docker compose down -v
+          docker rmi frontend api
           docker compose build
       
       - name: Run

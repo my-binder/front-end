@@ -152,6 +152,7 @@ export function PageListItem(props: { page: Page, reload: () => void }) {
           variant='contained'
           component={Link}
           to={`/view/${user.urlName}/${props.page.urlName}`}
+          target='_blank'
           startIcon={<VscOpenPreview />}
         >
           View

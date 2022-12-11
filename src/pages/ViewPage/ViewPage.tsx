@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useLoadFullPage } from 'api';
 import { MoonLoader } from 'react-spinners';
+import { ViewEntry } from 'components';
 import { Typography } from '@mui/material';
 import { SpinnerWrapper } from './ViewPage.styles';
 
@@ -34,9 +35,7 @@ export function ViewPage() {
             </title>
           </Helmet>
           {page.entries.map((entry, index) => (
-            <div key={index} style={{ padding: '32px', backgroundColor: 'lightblue' }}>
-              {entry.index}
-            </div>
+            <ViewEntry key={index} entry={entry} />
           ))}
         </>
       )

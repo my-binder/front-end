@@ -9,3 +9,4 @@ export * from './MainContainer/MainContainer';
 export * from './MainProviders/MainProviders';
 export * from './MUITheme/MUITheme';
 export * from './PageListItem/PageListItem';
+export * from './ViewEntry/ViewEntry';

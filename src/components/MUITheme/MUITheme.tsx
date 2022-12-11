@@ -71,6 +71,12 @@ const theme = createTheme({
       margin: '32px 0px 16px 0px',
       textAlign: 'center'
     },
+    h2: {
+      fontFamily: 'Bebas Neue',
+      fontSize: '26px',
+      fontWeight: 400,
+      textAlign: 'center'
+    },
     subtitle1: {
       fontFamily: 'Ubuntu',
       fontSize: '28px',
@@ -79,6 +85,12 @@ const theme = createTheme({
     },
     body1: {
       fontFamily: 'Ubuntu',
+      fontSize: '16px',
+      fontWeight: 400,
+      textAlign: 'center'
+    },
+    body2: {
+      fontFamily: 'Roboto',
       fontSize: '16px',
       fontWeight: 400,
       textAlign: 'center'

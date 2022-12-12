@@ -28,7 +28,7 @@ export function EditPage() {
           {`MyBinder | Editing ${page.page.title}`}
         </title>
       </Helmet>
-      {loading ? (
+      {loading && page.entries.length === 0 ? (
         <SpinnerWrapper>
           <MoonLoader color='var(--maincolor)' />
         </SpinnerWrapper>

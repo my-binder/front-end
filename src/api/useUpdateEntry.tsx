@@ -16,7 +16,7 @@ export function useUpdateEntry(pageId: number, entryId: number): [
 
   const submit = (
     data: Partial<Entry>,
-    onSuccess: () => void,
+    onSuccess: () => void
   ) => {
     setError('');
     submitRequest(

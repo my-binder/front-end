@@ -6,7 +6,7 @@ export function useLoadFullPage(userUrl: string, pageUrl: string): [
   fullPage: FullPage,
   error: string,
   loading: boolean,
-  load: () => void
+  load: (onSuccess?: () => void) => void
 ] {
   const [entries, setEntries] = useState<Entry[]>([]);
   const [page, setPage] = useState<Page>({ id: 0, title: '', urlName: '' });
@@ -14,14 +14,14 @@ export function useLoadFullPage(userUrl: string, pageUrl: string): [
   const [error, setError] = useState<string>('');
   const [loading, sendRequest] = useRequest<FullPage>();
 
-  const load = () => {
+  const load = (onSuccess?: () => void) => {
     setError('');
     sendRequest(
       'get',
       `/entries/${userUrl}/${pageUrl}`,
       {},
       (res) => {
-        setEntries(res.data.entries);
+        setEntries([...res.data.entries]);
         setPage({
           id: res.data.page.id,
           title: res.data.page.title,
@@ -32,6 +32,7 @@ export function useLoadFullPage(userUrl: string, pageUrl: string): [
           displayName: res.data.owner.displayName,
           urlName: res.data.owner.urlName
         });
+        if (onSuccess) onSuccess();
       },
       (err) => setError(err.message)
     );

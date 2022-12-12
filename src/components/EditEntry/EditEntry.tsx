@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAlert } from 'react-styled-alert';
 import { useEraseEntry, useMoveEntry, useUpdateEntry } from 'api';
 import { checkError } from 'utils';
@@ -32,7 +32,7 @@ import {
 export function EditEntry(props: {
   entry: Entry,
   pageId: number,
-  reload: () => void
+  reload: (onSuccess?: () => void) => void
 }) {
   const [type, setType] = useState<EntryType>(props.entry.type);
   const [title, setTitle] = useState<string>(props.entry.title);
@@ -55,7 +55,7 @@ export function EditEntry(props: {
     setSpace(0);
   };
 
-  const handleReload = () => {
+  const resetInputs = () => {
     setType(props.entry.type);
     setTitle(props.entry.title);
     setDescription(props.entry.description);
@@ -64,6 +64,8 @@ export function EditEntry(props: {
     setSourceUrl(props.entry.sourceUrl);
     setSpace(props.entry.space);
   };
+
+  useEffect(resetInputs, [props.entry]);
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -272,7 +274,7 @@ export function EditEntry(props: {
               variant='contained'
               color='primary'
               startIcon={<IoReloadOutline />}
-              onClick={handleReload}
+              onClick={resetInputs}
               data-cy={`ENTRY_${props.entry.id}_RELOAD`}
             >
               Reload

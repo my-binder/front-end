@@ -15,7 +15,7 @@ export const TopRow = styled.div`
 
 export const InputWrapper = styled.div<{ show: boolean }>`
   width: 100%;
-  display: ${(props: { show: boolean }) => (props.show ? 'flex' : 'none')};
+  display: ${(props) => (props.show ? 'flex' : 'none')};
 `;
 
 export const ButtonsWrapper = styled.div`
@@ -30,4 +30,10 @@ export const BottomRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const ContainerWrapper = styled.div<{ move: number }>`
+  margin-top: 32px;
+  transition: ${(props) => (props.move ? '0s' : '0.5s')};
+  transform: ${(props) => `translateY(${props.move}px)`};
 `;

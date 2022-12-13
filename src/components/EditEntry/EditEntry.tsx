@@ -32,7 +32,7 @@ import {
 export function EditEntry(props: {
   entry: Entry,
   pageId: number,
-  reload: (onSuccess?: () => void) => void
+  reload: () => void
 }) {
   const [type, setType] = useState<EntryType>(props.entry.type);
   const [title, setTitle] = useState<string>(props.entry.title);
@@ -109,7 +109,7 @@ export function EditEntry(props: {
   };
 
   return (
-    <Container margin='32px'>
+    <Container>
       <FormContainer onSubmit={handleSubmit}>
         <FormControl>
           <TopRow>

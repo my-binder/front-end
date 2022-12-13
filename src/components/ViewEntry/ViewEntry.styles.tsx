@@ -20,7 +20,8 @@ export const ProjectLayout = styled.div`
 `;
 
 export const ImgAndDescWrapper = styled.div`
-  width: 46%;
+  min-width: 368px;
+  max-width: 368px;
   display: flex;
   flex-direction: column;
   margin-right: 32px;
@@ -32,5 +33,6 @@ export const ImgAndDescWrapper = styled.div`
 
   @media (max-width: 800px) {
     width: 100%;
+    margin-bottom: 8px;
   }
 `;

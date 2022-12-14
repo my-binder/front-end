@@ -109,7 +109,7 @@ export function EditEntry(props: {
   };
 
   return (
-    <Container>
+    <Container margin='32px 0px 0px 0px'>
       <FormContainer onSubmit={handleSubmit}>
         <FormControl>
           <TopRow>
